@@ -1,3 +1,5 @@
+
+#[derive(Debug)]
 struct Usuario {
     nombre_usuario: String,
     correo: String,
@@ -45,11 +47,13 @@ fn main() {
     let usuario1 = crear_usuario(String::from("jon@doe.net"), String::from("jhon doe"));
     // sintaxis de actualizacion
     // los campos restantes se copian de usuario 1
-    let _usuario2 = Usuario {
+    let usuario2 = Usuario {
         nombre_usuario: String::from("Jhon Doe"),
         correo: String::from("jane@doe.net"),
         ..usuario1
     };
+
+    println!("usuario: {:#?}", usuario2);
 
     // estructuras de tuplas
     struct Punto(u32, u32, u32);
@@ -68,7 +72,7 @@ fn main() {
     // a diferiencia de C/C++ este referencia
     // y derreferencia automaticamente
     // no hace falta hacer objeto->funcion()
-    println!("rectangulo: [{}]", r1.area());
+    println!("rectangulo (area): [{}]", r1.area());
     println!("r1 puede contener a r2: {}", r1.puede_contener(&r2));
     println!("r2 puede contener a r1: {}", r2.puede_contener(&r1));
 }
